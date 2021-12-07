@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697262635811598395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 0.15, y: 1.25, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1296317462262151148}
@@ -284,7 +284,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7589740307634097629}
   - component: {fileID: 7589740307634097630}
-  - component: {fileID: 7589740307634097628}
+  - component: {fileID: 8130309207112564413}
+  - component: {fileID: 8395092767817530892}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -327,7 +328,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7589740307634097628
+--- !u!95 &8130309207112564413
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589740307634097631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65ee9920e095f3f458dc2e9d077fdc54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8395092767817530892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,12 +356,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7589740307634097631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433fde13d187aa4458185fed77e6decc, type: 3}
+  m_Script: {fileID: 11500000, guid: 43f008cab67811643b8c2e09361494d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cc: {fileID: 7589740307634097630}
-  moveSpeed: 10
-  stopped: 0
+  moveSpeed: 5
+  turnSpeed: 10
 --- !u!1 &8662869678002479396
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662869678002479396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.25, z: 0.5}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7996634070010292270}
@@ -401,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8992947413149547664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 0.25, y: 0.05, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1296317462262151148}
