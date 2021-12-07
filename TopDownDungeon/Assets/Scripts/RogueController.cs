@@ -5,6 +5,7 @@ using UnityEngine;
 public class RogueController : MonoBehaviour
 {
     CharacterController cc;
+    Animator anim;
 
     public float moveSpeed;
     public float turnSpeed;
@@ -18,6 +19,7 @@ public class RogueController : MonoBehaviour
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
     }
@@ -31,6 +33,7 @@ public class RogueController : MonoBehaviour
         CalculateDirection();
         RotatePlayer();
         MovePlayer();
+
     }
 
     void GetInput()

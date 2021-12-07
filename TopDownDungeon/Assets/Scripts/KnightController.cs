@@ -5,6 +5,7 @@ using UnityEngine;
 public class KnightController : MonoBehaviour
 {
     CharacterController cc;
+    Animator anim;
 
     public float moveSpeed;
     public float turnSpeed;
@@ -18,6 +19,7 @@ public class KnightController : MonoBehaviour
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
     }
@@ -37,6 +39,25 @@ public class KnightController : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+
+        if (Mathf.Abs(input.x) > 0 || Mathf.Abs(input.y) > 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else anim.SetBool("Moving", false);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Attack");
+            anim.SetTrigger("Attack");
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            Debug.Log("Block");
+            anim.SetBool("Blocking", true);
+        }
+        else anim.SetBool("Blocking", false);
     }
 
     void CalculateDirection()
