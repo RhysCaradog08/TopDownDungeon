@@ -20598,6 +20598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2993789109912490129, guid: 0055817305385264e9e9a389358cfcff, type: 3}
+      propertyPath: objectPools.Array.data[0].startCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2993789109912490134, guid: 0055817305385264e9e9a389358cfcff, type: 3}
       propertyPath: m_Name
       value: ObjectPoolManager
