@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Basics.ObjectPool;
 
 public class RogueController : MonoBehaviour
 {
@@ -16,12 +17,20 @@ public class RogueController : MonoBehaviour
     Quaternion targetRotation;
     Transform cam;
 
+    public GameObject arrow;
+    public Transform shootPoint;
+    [SerializeField] float shootForce;
+    [SerializeField] float shotDelay;
+    [SerializeField] bool shotTaken;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
+
+        shotTaken = false;
     }
 
     private void Update()
@@ -33,13 +42,39 @@ public class RogueController : MonoBehaviour
         CalculateDirection();
         RotatePlayer();
         MovePlayer();
-
     }
 
     void GetInput()
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+
+        if (Mathf.Abs(input.x) > 0 || Mathf.Abs(input.y) > 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else anim.SetBool("Moving", false);
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            arrow = ObjectPoolManager.instance.CallObject("Arrow", shootPoint, shootPoint.position, shootPoint.rotation);
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Debug.Log("Aiming");
+            anim.SetBool("Aiming", true);
+
+            Rigidbody rb = arrow.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+        }
+        else anim.SetBool("Aiming", false);
+
+        if(Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            Debug.Log("Shoot");
+            ShootArrow();
+        }
     }
 
     void CalculateDirection()
@@ -58,5 +93,14 @@ public class RogueController : MonoBehaviour
     void MovePlayer()
     {
         cc.Move(transform.forward * moveSpeed * Time.deltaTime);
+    }
+
+    void ShootArrow()
+    {
+        Rigidbody rb = arrow.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+
+        rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
+        arrow.transform.parent = null;
     }
 }
