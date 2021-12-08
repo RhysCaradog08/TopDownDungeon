@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarbarianController : MonoBehaviour
 {
     CharacterController cc;
+    Animator anim;
 
     public float moveSpeed;
     public float turnSpeed;
@@ -18,6 +19,7 @@ public class BarbarianController : MonoBehaviour
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
     }
@@ -37,6 +39,24 @@ public class BarbarianController : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+
+        if (Mathf.Abs(input.x) > 0 || Mathf.Abs(input.y) > 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else anim.SetBool("Moving", false);
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("WindUp", true);
+        }
+        else anim.SetBool("WindUp", false);
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            Debug.Log("Attack");
+            anim.SetTrigger("Attack");
+        }
     }
 
     void CalculateDirection()
