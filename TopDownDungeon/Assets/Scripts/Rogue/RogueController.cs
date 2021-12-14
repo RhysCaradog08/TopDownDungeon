@@ -20,9 +20,6 @@ public class RogueController : MonoBehaviour
     public GameObject arrow;
     public Transform shootPoint;
     [SerializeField] float shootForce;
-    [SerializeField] float shotDelay;
-    [SerializeField] bool shotTaken;
-
 
     private void Start()
     {
@@ -30,8 +27,6 @@ public class RogueController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
-
-        shotTaken = false;
     }
 
     private void Update()
@@ -98,10 +93,14 @@ public class RogueController : MonoBehaviour
 
     void ShootArrow()
     {
+        Arrow a = arrow.GetComponent<Arrow>();
+        a.shot = true;
+
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         rb.isKinematic = false;
 
         rb.AddForce(transform.forward * shootForce, ForceMode.Impulse);
         arrow.transform.parent = null;
+
     }
 }

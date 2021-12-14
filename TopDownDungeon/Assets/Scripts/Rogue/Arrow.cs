@@ -6,17 +6,28 @@ using Basics.ObjectPool;
 public class Arrow : MonoBehaviour
 {
     Rigidbody rb;
+    CapsuleCollider trigger;
+    public bool shot;
     [SerializeField] bool hit;
     [SerializeField] float recallDelay;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        trigger = GetComponent<CapsuleCollider>();
+
         hit = false;
+        shot = false;
     }
 
     private void Update()
     {
+        if (shot)
+        {
+            trigger.enabled = true;
+        }
+        else trigger.enabled = false;
+
         if(hit)
         {
             rb.isKinematic = true;
@@ -33,6 +44,7 @@ public class Arrow : MonoBehaviour
             rb.isKinematic = false;
             ObjectPoolManager.instance.RecallObject(this.gameObject);
             hit = false;
+            shot = false;
         }
     }
 

@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5158742986006811193}
+  - component: {fileID: 8146855197476271147}
+  - component: {fileID: 5835959860877124698}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -32,6 +34,31 @@ Transform:
   m_Father: {fileID: 8519509042530867150}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!65 &8146855197476271147
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853511564252116741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.25, y: 1, z: 1}
+  m_Center: {x: 0, y: 1.85, z: 0}
+--- !u!114 &5835959860877124698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853511564252116741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc4cdc05b3bce54fbf5a2676385b29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4015040185755741257
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +70,6 @@ GameObject:
   - component: {fileID: 8321382281552761539}
   - component: {fileID: 4732451949164590689}
   - component: {fileID: 5346991658842746778}
-  - component: {fileID: 2528577578914154900}
   m_Layer: 0
   m_Name: Shaft
   m_TagString: Untagged
@@ -115,19 +141,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2528577578914154900
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015040185755741257}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8519509042295651558
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   turnSpeed: 10
+  hammerTrigger: {fileID: 8146855197476271147}
 --- !u!1 &8792256404752091563
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +321,6 @@ GameObject:
   - component: {fileID: 8499096796297869719}
   - component: {fileID: 6221422044289453715}
   - component: {fileID: 6946155588567735342}
-  - component: {fileID: 8820401981911026134}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -379,16 +392,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8820401981911026134
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8792256404752091563}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

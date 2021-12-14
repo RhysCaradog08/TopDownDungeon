@@ -16,12 +16,16 @@ public class BarbarianController : MonoBehaviour
     Quaternion targetRotation;
     Transform cam;
 
+    public BoxCollider hammerTrigger;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
+
+        DisableHammerTrigger();
     }
 
     private void Update()
@@ -75,5 +79,15 @@ public class BarbarianController : MonoBehaviour
     void MovePlayer()
     {
         cc.Move(transform.forward * moveSpeed * Time.deltaTime);
+    }
+
+    public void EnableHammerTrigger()
+    {
+        hammerTrigger.enabled = true;
+    }
+
+    public void DisableHammerTrigger()
+    {
+        hammerTrigger.enabled = false;
     }
 }
