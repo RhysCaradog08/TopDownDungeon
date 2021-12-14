@@ -32,6 +32,7 @@ public class Arrow : MonoBehaviour
         {
             rb.isKinematic = false;
             ObjectPoolManager.instance.RecallObject(this.gameObject);
+            hit = false;
         }
     }
 

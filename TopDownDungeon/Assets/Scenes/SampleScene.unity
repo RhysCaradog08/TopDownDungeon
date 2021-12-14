@@ -4536,6 +4536,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8609276e57382a2499d5da36a720735c, type: 3}
+--- !u!1 &429274242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429274244}
+  - component: {fileID: 429274243}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &429274243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429274242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861090f79621d6142905bdbb202a9e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 7929963770981485595, guid: dd9da33867adec24b80207714251230f, type: 3}
+  amountToPool: 5
+--- !u!4 &429274244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429274242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &429354539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7268630726280188204, guid: 90ec2d01fd3045940960849d02df5111, type: 3}
@@ -20600,11 +20646,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2993789109912490129, guid: 0055817305385264e9e9a389358cfcff, type: 3}
       propertyPath: objectPools.Array.data[0].startCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993789109912490129, guid: 0055817305385264e9e9a389358cfcff, type: 3}
+      propertyPath: objectPools.Array.data[0].inactivePool.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2993789109912490134, guid: 0055817305385264e9e9a389358cfcff, type: 3}
       propertyPath: m_Name
       value: ObjectPoolManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993789109912490134, guid: 0055817305385264e9e9a389358cfcff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0055817305385264e9e9a389358cfcff, type: 3}
