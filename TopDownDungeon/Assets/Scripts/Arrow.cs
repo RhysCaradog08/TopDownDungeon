@@ -41,6 +41,10 @@ public class Arrow : MonoBehaviour
         Debug.Log("Hit Something");
         recallDelay = 1;
         hit = true;
-        //ObjectPoolManager.instance.RecallObject(this.gameObject);
+       
+        if(other.tag == "Destructable")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

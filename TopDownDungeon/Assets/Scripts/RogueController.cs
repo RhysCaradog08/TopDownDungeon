@@ -23,6 +23,7 @@ public class RogueController : MonoBehaviour
     [SerializeField] float shotDelay;
     [SerializeField] bool shotTaken;
 
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
