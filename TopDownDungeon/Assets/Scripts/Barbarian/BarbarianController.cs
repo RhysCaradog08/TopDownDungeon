@@ -24,8 +24,6 @@ public class BarbarianController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         cam = Camera.main.transform;
-
-        DisableHammerTrigger();
     }
 
     private void Update()

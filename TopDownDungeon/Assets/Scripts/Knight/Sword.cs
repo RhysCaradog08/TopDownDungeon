@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hammer : MonoBehaviour
+public class Sword : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Destructable")
+        if(other.tag == "Destructable")
         {
             Destroy(other.gameObject);
         }
     }
+
+
 }

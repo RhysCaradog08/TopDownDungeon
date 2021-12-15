@@ -16,6 +16,8 @@ public class KnightController : MonoBehaviour
     Quaternion targetRotation;
     Transform cam;
 
+    public CapsuleCollider swordTrigger;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -76,5 +78,15 @@ public class KnightController : MonoBehaviour
     void MovePlayer()
     {
         cc.Move(transform.forward * moveSpeed * Time.deltaTime);
+    }
+
+    public void EnableSwordTrigger()
+    {
+        swordTrigger.enabled = true;
+    }
+
+    public void DisableSwordTrigger()
+    {
+        swordTrigger.enabled = false;
     }
 }
