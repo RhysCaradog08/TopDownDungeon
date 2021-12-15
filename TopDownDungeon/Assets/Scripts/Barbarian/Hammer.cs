@@ -15,6 +15,12 @@ public class Hammer : MonoBehaviour
         {
             Debug.Log("Hit Switch");
 
+            Door_Switch ds = other.GetComponentInParent<Door_Switch>();
+            if(ds != null)
+            {
+                ds.pressed = true;
+            }
+
             Animator switchAnim = other.GetComponentInParent<Animator>();
             switchAnim.SetTrigger("Pressed");
         }
