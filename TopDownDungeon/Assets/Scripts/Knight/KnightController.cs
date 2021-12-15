@@ -10,7 +10,7 @@ public class KnightController : MonoBehaviour
     public float moveSpeed;
     public float turnSpeed;
 
-    Vector2 input;
+    Vector3 input;
     float angle;
 
     Quaternion targetRotation;
@@ -30,7 +30,7 @@ public class KnightController : MonoBehaviour
     {
         GetInput();
 
-        if(Mathf.Abs(input.x) < 1 && Mathf.Abs(input.y) < 1) return;
+        if (Mathf.Abs(input.x) < 1 && Mathf.Abs(input.z) < 1) return;
 
         CalculateDirection();
         RotatePlayer();
@@ -40,9 +40,9 @@ public class KnightController : MonoBehaviour
     void GetInput()
     {
         input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
+        input.z = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Abs(input.x) > 0 || Mathf.Abs(input.y) > 0)
+        if (Mathf.Abs(input.x) > 0 || Mathf.Abs(input.z) > 0)
         {
             anim.SetBool("Moving", true);
         }
@@ -64,7 +64,7 @@ public class KnightController : MonoBehaviour
 
     void CalculateDirection()
     {
-        angle = Mathf.Atan2(input.x, input.y);
+        angle = Mathf.Atan2(input.x, input.z);
         angle = Mathf.Rad2Deg * angle;
         angle += cam.eulerAngles.y;
     }

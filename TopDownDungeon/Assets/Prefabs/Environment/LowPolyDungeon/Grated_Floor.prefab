@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1093579576647841732}
   - component: {fileID: 1093579576646710532}
   - component: {fileID: 1266593573669010496}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grated_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

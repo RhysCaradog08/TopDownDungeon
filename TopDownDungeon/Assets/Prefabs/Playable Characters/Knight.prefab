@@ -345,9 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f008cab67811643b8c2e09361494d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -9.81
+  velocity: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   turnSpeed: 10
-  attacking: 0
+  swordTrigger: {fileID: 7900996160594869103}
 --- !u!1 &8662869678002479396
 GameObject:
   m_ObjectHideFlags: 0

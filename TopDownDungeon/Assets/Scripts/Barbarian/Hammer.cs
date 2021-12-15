@@ -10,5 +10,13 @@ public class Hammer : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if(other.tag == "Switch")
+        {
+            Debug.Log("Hit Switch");
+
+            Animator switchAnim = other.GetComponentInParent<Animator>();
+            switchAnim.SetTrigger("Pressed");
+        }
     }
 }
